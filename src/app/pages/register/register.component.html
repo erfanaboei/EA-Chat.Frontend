@@ -1,0 +1,40 @@
+<form nz-form (ngSubmit)="register()">
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>نام کاربری</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzValidatingTip="Validating...">
+      <input nz-input name="username" [(ngModel)]="registerData.username" placeholder="نام کاربری را وارد کنید" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>موبایل</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <input nz-input name="mobile" [(ngModel)]="registerData.mobile" placeholder="موبایل را وارد کنید" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>ایمیل</nz-form-label>
+    <nz-form-control [nzSpan]="12">
+      <input nz-input name="email" [(ngModel)]="registerData.email" placeholder="ایمیل را وارد کنید" type="email" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>رمز عبور</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzDisableAutoTips nzErrorTip="لطفا رمز عبور را وارد کنید!">
+      <input nz-input type="password" name="password" [(ngModel)]="registerData.password" placeholder="رمز عبور را وارد کنید" (change)="validateConfirmPassword()" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>تکرار رمز عبور</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzDisableAutoTips [nzErrorTip]="passwordErrorTpl">
+      <input nz-input type="password" name="rePassword" [(ngModel)]="registerData.rePassword" placeholder="تکرار رمز عبور را وارد کنید" />
+      <ng-template #passwordErrorTpl>
+
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzOffset]="7" [nzSpan]="12">
+      <button nz-button nzType="primary">ثبت نام</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
