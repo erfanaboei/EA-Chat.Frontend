@@ -1,0 +1,89 @@
+<div class="">
+  <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 text-center md:text-2xl dark:text-white">
+      ثبت نام
+    </h1>
+    <form class="space-y-4 md:space-y-6" [formGroup]="registerData">
+      <div>
+        <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">نام کاربری</label>
+        <input
+          type="text"
+          formControlName="username"
+          id="username"
+          class="bg-gray-50 border border-gray-300 text-gray-900 focus:outline-0 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="نام کاربری"
+        >
+        <div class="invalid-feedback text-red-700" *ngIf="registerData.get('username')?.errors && registerData.get('username')?.touched">
+          <span *ngIf="registerData.get('username')?.hasError('required')">لطفا نام کاربری را وارد کنید</span>
+          <span *ngIf="registerData.get('username')?.hasError('minLength')">نام کاربری نمیتواند کمتر از 4 کاراکتر باشد</span>
+          <span *ngIf="registerData.get('username')?.hasError('maxLength')">نام کاربری نمیتواند بیشتر از 25 کاراکتر باشد</span>
+        </div>
+      </div>
+      <div>
+        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ایمیل</label>
+        <input
+          type="text"
+          formControlName="email"
+          id="email"
+          class="bg-gray-50 border border-gray-300 text-gray-900 focus:outline-0 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="ایمیل"
+        >
+        <div class="invalid-feedback text-red-700" *ngIf="registerData.get('email')?.errors && registerData.get('email')?.touched">
+          <span *ngIf="registerData.get('email')?.hasError('required')">لطفا ایمیل را وارد کنید</span>
+          <span *ngIf="registerData.get('email')?.hasError('email')">ایمیل وارد شده صحیح نیست</span>
+        </div>
+      </div>
+      <div>
+        <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تلفن همراه</label>
+        <input
+          type="text"
+          formControlName="mobile"
+          id="mobile"
+          class="bg-gray-50 border border-gray-300 text-gray-900 focus:outline-0 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="تلفن همراه"
+        >
+        <div class="invalid-feedback text-red-700" *ngIf="registerData.get('mobile')?.errors && registerData.get('mobile')?.touched">
+          <span *ngIf="registerData.get('mobile')?.hasError('required')">لطفا تلفن همراه را وارد کنید</span>
+          <span *ngIf="registerData.get('mobile')?.hasError('pattern')">تلفن همراه وارد شده صحیج نیست</span>
+        </div>
+      </div>
+      <div>
+        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">رمز عبور</label>
+        <input
+          type="password"
+          formControlName="password"
+          id="password"
+          placeholder="••••••••"
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-0 focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+        <div class="invalid-feedback text-red-700" *ngIf="registerData.get('password')?.errors && registerData.get('password')?.touched">
+          <span *ngIf="registerData.get('password')?.hasError('required')">لطفا رمز عبور را وارد کنید</span>
+          <span *ngIf="registerData.get('password')?.hasError('pattern')">رمز عبور باید حداقل 8 کاراکتر و حاوی عدد حروف کوچک و بزرگ باشد</span>
+        </div>
+      </div>
+      <div>
+        <label for="rePassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">تکرار رمز عبور</label>
+        <input
+          type="password"
+          formControlName="rePassword"
+          id="rePassword"
+          placeholder="••••••••"
+          class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:outline-0 focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+        <div class="invalid-feedback text-red-700" *ngIf="registerData.get('rePassword')?.errors && registerData.get('rePassword')?.touched">
+          <span *ngIf="registerData.get('rePassword')?.hasError('required')">لطفا رمز عبور را وارد کنید</span>
+          <span *ngIf="registerData.get('rePassword')?.hasError('pattern')">تکرار رمز عبور باید حداقل 8 کاراکتر و حاوی عدد و حروف کوچک و بزرگ باشد</span>
+          <span *ngIf="registerData.get('rePassword')?.hasError('passwordNoMatch')">رمز عبور و تکرار آن برابر نیستند</span>
+        </div>
+      </div>
+      <button
+        type="button"
+        (click)="register()"
+        [disabled]="!registerData.valid"
+        class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+      >
+         ثبت نام
+      </button>
+    </form>
+  </div>
+</div>

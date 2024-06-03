@@ -1,29 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../../services/user-services/user.service";
-import {IUser} from "../../../interfaces/IUsers/IUser";
-import {NzTableComponent, NzTbodyComponent, NzTheadComponent} from "ng-zorro-antd/table";
-import {NgForOf} from "@angular/common";
+import {NzContentComponent, NzHeaderComponent, NzLayoutComponent, NzSiderComponent} from "ng-zorro-antd/layout";
+import {NzMenuDirective, NzMenuItemComponent, NzSubMenuComponent} from "ng-zorro-antd/menu";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
+import {NzIconDirective} from "ng-zorro-antd/icon";
+import {StorageService} from "../../../services/storage-services/storage.service";
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
   templateUrl: './welcome.component.html',
   imports: [
-    NzTableComponent,
-    NzTheadComponent,
-    NzTbodyComponent,
-    NgForOf
+    NzLayoutComponent,
+    NzSiderComponent,
+    NzMenuDirective,
+    NzSubMenuComponent,
+    NzMenuItemComponent,
+    RouterLink,
+    NzHeaderComponent,
+    NzIconDirective,
+    NzContentComponent,
+    RouterOutlet
   ],
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-
-  Users!: IUser[];
-
-  constructor(private _userService: UserService) { }
+  constructor(private _storageService:StorageService, private _router:Router) { }
 
   ngOnInit() {
-    this._userService.GetAllUsers().subscribe(data=> this.Users = data);
+
   }
 
 }

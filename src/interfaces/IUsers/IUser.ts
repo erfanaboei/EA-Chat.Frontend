@@ -6,4 +6,5 @@ export interface IUser{
   mobile: string,
   isActive: boolean,
   registerDate: string,
+  token:string
 }

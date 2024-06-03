@@ -1,0 +1,21 @@
+<nz-table
+  #basicTable
+  [nzData]="Users"
+  class="">
+  <thead class="">
+  <th>شناسه</th>
+  <th>نام کاربری</th>
+  <th>ایمیل</th>
+  <th>موبایل</th>
+  <th>تاریخ ثبت نام</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of basicTable.data">
+    <td>{{user.id}}</td>
+    <td>{{user.userName}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.mobile}}</td>
+    <td>{{user.registerDate}}</td>
+  </tr>
+  </tbody>
+</nz-table>
